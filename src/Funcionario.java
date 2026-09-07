@@ -40,11 +40,11 @@ public abstract class Funcionario {
         }
         System.out.println("Cargo: " + toString());
 
-        // VAIDAÇÃO SÁLARIO
+        // VAIDAÇÃO SALÁRIO
         if (salario <=0){
-            System.out.println("Sálario: Sálario não pode ser menor ou igual a 0!!!");
+            System.out.println("Salário: Salário não pode ser menor ou igual a 0!!!");
         } else {
-            System.out.println("Sálario: " + this.salario);
+            System.out.println("Salário: " + this.salario);
         }
 
         // VALIDAÇÃO BONIFICAÇÃO

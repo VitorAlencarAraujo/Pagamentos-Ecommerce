@@ -17,19 +17,55 @@ public abstract class Funcionario {
         return salario;
     }
 
-    public abstract float calcularComisao();
-
     public abstract float calcularBonificacao();
-
     public abstract float calcularRemuneracaoTotal();
 
+    public abstract float calcularComisao();
+
+    //Metodo para exibir o Holerite
     public void exibirHolerite(){
-        System.out.println("\nNome: " + this.nome);
-        System.out.println("CPF: " + this.cpf);
+
+        // VAIDAÇÃO NOME
+        if (nome == null || nome.trim().isEmpty()) {
+            System.out.println("\nNome: O nome precisa ser informado!!!");
+        } else {
+            System.out.println("\nNome: " + this.nome);
+        }
+
+        // VAIDAÇÃO CPF
+        if (cpf == null || cpf.trim().isEmpty()) {
+            System.out.println("CPF: O cpf precisa ser informado!!!");
+        } else {
+            System.out.println("CPF: " + this.cpf);
+        }
         System.out.println("Cargo: " + toString());
-        System.out.println("Sálario: " + this.salario);
-        System.out.println("Bonificação: " + this.salario * calcularBonificacao());
-        System.out.println("Comissão: " + calcularComisao());
-        System.out.println("Remuneração Total: " + calcularRemuneracaoTotal());
+
+        // VAIDAÇÃO SÁLARIO
+        if (salario <=0){
+            System.out.println("Sálario: Sálario não pode ser menor ou igual a 0!!!");
+        } else {
+            System.out.println("Sálario: " + this.salario);
+        }
+
+        // VALIDAÇÃO BONIFICAÇÃO
+        if (this.salario * calcularBonificacao() <0 ){
+            System.out.println("Bonificação: Bonificação não pode ser menor ou igual a 0!!!");
+        } else {
+            System.out.println("Bonificação: " + this.salario * calcularBonificacao());
+        }
+
+        // VALIDAÇÃO COMISSÃO
+        if (calcularComisao() < 0){
+            System.out.println("Comissão: Comissão não pode ser menor ou igual a 0!!!");
+        } else {
+            System.out.println("Comissão: " + calcularComisao());
+        }
+
+        // VALIDAÇÃO REMUNERAÇÃO TOTAL
+        if (calcularRemuneracaoTotal() <=0){
+            System.out.println("Remuneração Total: -ERRO-" );
+        } else {
+            System.out.println("Remuneração Total: " + calcularRemuneracaoTotal());
+        }
     }
 }
